@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">lab4</string>
+    <string name="toscreen2">toScreen2</string>
+    <string name="toscreen3">toScreen3</string>
 </resources>
