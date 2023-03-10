@@ -2,11 +2,13 @@ package com.example.lab4;
 
 import android.content.Context;
 import android.media.Image;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,6 +38,13 @@ public class CategoryRecyclerViewAdapter extends RecyclerView.Adapter<CategoryRe
         CosmeticRecyclerItem item = items.get(position);
         holder.textView.setText(item.getCategoryTitle());
         holder.imageView.setImageResource(item.getResource());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "Category " + (holder.getAdapterPosition() + 1), Toast.LENGTH_SHORT).show();
+                Log.d("recyclerView", "Category" + (holder.getAdapterPosition() + 1));
+            }
+        });
     }
 
     @Override
