@@ -1,12 +1,14 @@
 package com.example.lab4;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -35,6 +37,13 @@ public class CategoryListAdapter extends ArrayAdapter<CosmeticListItem> {
         CosmeticListItem item = items.get(position);
         textView.setText(item.getCategoryTitle());
         imageView.setImageResource(item.getResource());
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Category " + (position + 1), Toast.LENGTH_SHORT).show();
+                Log.d("listView", "Category" + (position + 1));
+            }
+        });
         return view;
     }
 }
